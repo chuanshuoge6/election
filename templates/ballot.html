@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>Ballot Record</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+
+<body>
+    <h1>Ballot Record</h1>
+    <h3><a href="/">back</a></h3>
+    <table>
+        <tr>
+            <th>Driver's license</th>
+            <th>Ballot</th>
+        </tr>
+        {{range $key, $val := .}}
+        <tr>
+            <td>{{$key}}</td>
+            <td>{{$val}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+
+</html>

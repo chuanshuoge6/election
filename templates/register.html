@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>Register</title>
+</head>
+
+<body>
+    <h1>Registration</h1>
+    <form method="POST">
+        <div> Driver's Liscense: <input name="username"></div><br />
+        <div><input type="button" onclick="inputClick(); this.value=' &#10004'" value='voter validation'></input>
+        </div><br />
+        <div></div>Password: <input name="password"></div><br /><br />
+        <div> <button type="submit" id="button1" disabled>Register</button></div><br />
+    </form>
+    <div>status: {{.Status}}</div><br />
+</body>
+
+<script>
+    function inputClick() {
+        document.getElementById('button1').disabled = false;
+    }
+</script>
+
+</html>

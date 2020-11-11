@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title> Ballot</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>World Election of Year 3000 </h1>
+    </div>
+
+    {{if .Username}}
+    <div>
+        <h3>I ({{.Username}}) vote for <i>{{.Ballot}}</i>
+            <span style="float: right;"><a href="/logout">sign out</a></span></h3>
+    </div>
+
+    {{else}}
+    <div>
+        <h3>Please <a href="/login">log in</a></h3>
+    </div>
+    {{end}}
+
+    <div>
+        <h3>Current Counts: human ({{.Count1}}) vs humanoid ({{.Count2}})
+            <a href="/ballot" style="border: 1px solid black; background-color: beige;">
+                <i class="fa fa-search"></i></a>
+        </h3>
+    </div>
+
+    <form method="POST">
+        <input type="hidden" value="" id="input1" name="ballot">
+        <div class="row">
+            <div class="column">
+                <h2>Human</h2>
+                <img src="/static/human.jpg" alt="Human" style="width:90%;" onclick="humanClick()">
+            </div>
+            <div class="column">
+                <h2>Humanoid</h2>
+                <img src="/static/humanoid.jpg" alt="Humanoid" style="width:90%;" onclick="humanoidClick()">
+            </div>
+        </div>
+        <button type="submit" style="display: none;" id="button1"></button>
+
+    </form>
+
+    <div>
+        <h3>status: {{.Status}}</h3>
+    </div><br />
+</body>
+<script>
+    function humanClick() {
+        document.getElementById("input1").value = "human"
+        document.getElementById("button1").click()
+    }
+
+    function humanoidClick() {
+        document.getElementById("input1").value = "humanoid"
+        document.getElementById("button1").click()
+    }
+</script>
+
+</html>
